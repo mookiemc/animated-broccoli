@@ -391,6 +391,9 @@ p { margin: 0 0 1em; }
   object-position: center 20%;
   display: block;
 }
+/* Per-attorney crop tuning */
+.attorney:nth-of-type(1) .attorney-photo img { object-position: center 35%; }
+.attorney:nth-of-type(2) .attorney-photo img { object-position: center 20%; }
 @media (max-width: 720px) {
   .attorney-grid { grid-template-columns: 1fr; gap: 3rem; }
 }

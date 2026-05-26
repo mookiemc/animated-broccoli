@@ -148,27 +148,43 @@ p { margin: 0 0 1em; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #f5eedf;
   background:
-    linear-gradient(135deg, rgba(15,30,45,0.7), rgba(20,15,10,0.85)),
-    radial-gradient(ellipse at top, #2a3a55 0%, #1a1a1a 60%, #0d0d0d 100%);
-  padding: 6rem var(--gutter);
+    linear-gradient(180deg, rgba(10,13,18,0.55) 0%, rgba(10,13,18,0.35) 40%, rgba(10,13,18,0.75) 100%),
+    url("assets/hero.jpg") center / cover no-repeat,
+    radial-gradient(ellipse at top, #2a3a55 0%, #161e2c 55%, #0a0d12 100%);
+  padding: 4.5rem var(--gutter) 5.5rem;
   overflow: hidden;
 }
-.hero::after {
-  /* subtle starry texture */
+.hero::before {
+  /* denser starfield */
   content: "";
   position: absolute; inset: 0;
   background-image:
-    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 50%, transparent),
-    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.25) 50%, transparent),
-    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.3) 50%, transparent);
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,0.85) 50%, transparent),
+    radial-gradient(1px 1px at 24% 68%, rgba(255,255,255,0.7) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 38% 18%, rgba(255,255,255,0.75) 50%, transparent),
+    radial-gradient(1px 1px at 47% 82%, rgba(255,255,255,0.6) 50%, transparent),
+    radial-gradient(2px 2px at 58% 35%, rgba(255,255,255,0.9) 50%, transparent),
+    radial-gradient(1px 1px at 66% 12%, rgba(255,255,255,0.7) 50%, transparent),
+    radial-gradient(1px 1px at 73% 74%, rgba(255,255,255,0.65) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 82% 28%, rgba(255,255,255,0.8) 50%, transparent),
+    radial-gradient(1px 1px at 90% 55%, rgba(255,255,255,0.7) 50%, transparent),
+    radial-gradient(1px 1px at 6% 50%, rgba(255,255,255,0.6) 50%, transparent),
+    radial-gradient(1px 1px at 30% 92%, rgba(255,255,255,0.55) 50%, transparent),
+    radial-gradient(1.5px 1.5px at 95% 88%, rgba(255,255,255,0.7) 50%, transparent);
+  pointer-events: none;
+}
+.hero::after {
+  /* vignette to focus the eye on center content */
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.45) 100%);
   pointer-events: none;
 }
 .hero-inner {
@@ -204,6 +220,15 @@ p { margin: 0 0 1em; }
   font-weight: 400;
   line-height: 1.4;
   color: #f0e8d8;
+  margin: 0 0 1.25rem;
+}
+.hero-meta {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245, 238, 223, 0.65);
   margin: 0 0 2.5rem;
 }
 .hero-cta {
@@ -211,6 +236,33 @@ p { margin: 0 0 1em; }
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: rgba(245, 238, 223, 0.55);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.hero-scroll svg { animation: hero-scroll-bob 2s ease-in-out infinite; }
+.hero-scroll:hover { color: var(--color-gold-bright); }
+@keyframes hero-scroll-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll svg { animation: none; }
 }
 
 /* ---------- Practice section (Business / Immigration intros) ---------- */

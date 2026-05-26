@@ -250,6 +250,12 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+.practice-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 @media (max-width: 800px) {
   .practice { grid-template-columns: 1fr; }
@@ -309,6 +315,14 @@ p { margin: 0 0 1em; }
 .service-card-image {
   background: linear-gradient(160deg, #c9b993 0%, #8a755a 100%);
   grid-column: span 1;
+  padding: 0;
+  overflow: hidden;
+}
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .services-link {
@@ -368,6 +382,13 @@ p { margin: 0 0 1em; }
   display: flex;
   justify-content: center;
   margin-bottom: 0.5rem;
+}
+.attorney-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 @media (max-width: 720px) {
   .attorney-grid { grid-template-columns: 1fr; gap: 3rem; }
